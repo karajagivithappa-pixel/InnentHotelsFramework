@@ -52,6 +52,11 @@ public class HotelDetailPage {
 		return submitReview;
 	}
 	
+	@FindBy(xpath = "//i[@class='fas fa-check-circle']/parent::div")
+	private WebElement reviewSubmittedMessage;
 	
+	public WebElement getReviewSubmittedMessageText() {
+		return reviewSubmittedMessage;
+	}
 	
 }

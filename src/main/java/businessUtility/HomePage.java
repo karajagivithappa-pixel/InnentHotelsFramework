@@ -82,7 +82,7 @@ public class HomePage {
 		Actions a=new Actions(driver);
 		a.moveToElement(signInIcon).perform();
 		a.click(signInLink).perform();
-		a.sendKeys(email,"karajagivithappa@gmail.com",Keys.TAB,"Innet@123",Keys.ENTER).perform();
+		a.sendKeys(email,"shivanshinfotech123@gmail.com",Keys.TAB,"shivansh@123",Keys.ENTER).perform();
 	}
 	
 	public void userSignOut(WebDriver driver) {

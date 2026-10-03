@@ -59,5 +59,10 @@ public class HotelsPage {
 		return doneBtn;
 	}
 	
+	@FindBy(xpath = "//span[@class='innent-price']")
+	private WebElement hotelPrice;
 	
+	public WebElement getHotelPriceCurrencyText() {
+		return hotelPrice;
+	}
 }
