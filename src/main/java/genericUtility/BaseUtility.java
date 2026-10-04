@@ -1,5 +1,6 @@
 package genericUtility;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -23,7 +24,6 @@ public class BaseUtility {
 		localDriver.set(driver);
 		wu.maximizeBrowser(driver);
 		wu.implicitWait(driver);
-		
 		driver.get(pu.getPropertyData("url"));
 	}
 	
@@ -31,17 +31,19 @@ public class BaseUtility {
 	public void configBM() {
 		HomePage hp=new HomePage(driver);
 		hp.userSignIn(driver);
+		driver.findElement(By.xpath("//button[@onclick='cookieAccept()']")).click();
 	}
 	
 	@AfterMethod(groups = {"integrationTest","smokeTest","systemTest"})
-	public void configAM() {
+	public void configAM() throws Exception {
+		Thread.sleep(2000);
 		HomePage hp=new HomePage(driver);
 		hp.userSignOut(driver);
 	}
 	
 	@AfterClass(groups = {"integrationTest","smokeTest","systemTest"})
 	public void configAC() {
-		driver.quit();
+		driver.close();	
 	}
 	
 	

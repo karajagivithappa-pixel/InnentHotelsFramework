@@ -86,4 +86,11 @@ public class HotelBookingPage {
 	public WebElement getPayNowText() {
 		return payNow;
 	}
+	
+	@FindBy(xpath = "//input[@id='email']")
+	private WebElement emailAddress;
+	
+	public WebElement getEmailAddressValue() {
+		return emailAddress;
+	}
 }

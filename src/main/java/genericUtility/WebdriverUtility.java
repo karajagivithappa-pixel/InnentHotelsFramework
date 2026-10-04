@@ -3,6 +3,7 @@ package genericUtility;
 import java.time.Duration;
 import java.util.Set;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,13 +11,16 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WebdriverUtility {
 	
-	WebDriver driver;
+	
 	
 	public WebDriver launchBrowser(String browserName) {
+		WebDriver driver;
 		if(browserName.equalsIgnoreCase("chrome"))
 			driver=new ChromeDriver();
 		else if(browserName.equalsIgnoreCase("edge"))
@@ -35,7 +39,7 @@ public class WebdriverUtility {
 	}
 	
 	public void implicitWait(WebDriver driver) {
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	}
 	
 	public void switchToChildWindow(WebDriver driver,String parentId) {
@@ -57,14 +61,32 @@ public class WebdriverUtility {
 		a.click(element).perform();
 	}
 	
+	public void scrollToElementMethod(WebDriver driver,WebElement element) {
+		Actions a=new Actions(driver);
+		a.scrollToElement(element).perform();
+	}
+	
 	public void selectDropdown(WebElement selectEle, String optionText) {
 		Select s=new Select(selectEle);
 		s.selectByVisibleText(optionText);
 	}
 	
+	public void waitUntilClickable(WebDriver driver,WebElement ele) {
+		WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.elementToBeClickable(ele));
+	}
 	
+	public void invisibilityOfElement(WebDriver driver) {
+		WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(
+		        By.id("innent-loader-overlay")));
+	}
 	
-	
+	public void visibilityOfElement(WebDriver driver,WebElement ele) {
+		WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.visibilityOf(ele));
+		
+	}
 	
 	
 	

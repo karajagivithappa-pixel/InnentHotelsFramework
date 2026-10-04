@@ -17,33 +17,29 @@ import genericUtility.ListenerUtility;
 public class HotelsTest extends BaseUtility {
 
 	@Test(groups = { "integrationTest" })
-	public void officialHotelPageTest() throws Exception {
-
+	public void autofillGuestDetailTest() {
 		ListenerUtility.test.get().log(Status.INFO, "navigate to hotels module");
 		HomePage hp = new HomePage(driver);
 		hp.getHotelsLink().click();
-		Thread.sleep(4000);
-
-		ListenerUtility.test.get().log(Status.INFO, "click on view hotel button");
+		wu.invisibilityOfElement(driver);
+		
+		ListenerUtility.test.get().log(Status.INFO, "navigate to hotel detail page");
 		HotelsPage hotels = new HotelsPage(driver);
+		wu.waitUntilClickable(driver,hotels.getViewHotelBtn());
 		hotels.getViewHotelBtn().click();
-
-		String parentId = driver.getWindowHandle();
-		Thread.sleep(4000);
-		ListenerUtility.test.get().log(Status.INFO, "navigate to official hotel page");
+		
+		ListenerUtility.test.get().log(Status.INFO, "navigate to hotel booking page");
 		HotelDetailPage hotelDetail = new HotelDetailPage(driver);
-		String officialHotel = hotelDetail.getHotelHyperLink().getText().replace("https://", "").replace("http://", "");
-		hotelDetail.getHotelHyperLink().click();
-
-		wu.switchToChildWindow(driver, parentId);
-
-		String actual = driver.getCurrentUrl().replace("https://", "").replace("http://", "");
-		driver.switchTo().window(parentId);
-
-		boolean status = actual.contains(officialHotel);
-		Assert.assertTrue(status);
-
+		wu.scrollToElementMethod(driver,hotelDetail.getReserveNowBtn());
+		hotelDetail.getReserveNowBtn().click();
+		
+		HotelBookingPage hotelBook=new HotelBookingPage(driver);
+		String actual=hotelBook.getEmailAddressValue().getAttribute("value");
+		Assert.assertEquals(actual,"shivanshinfotech123@gmail.com");
 	}
+	
+	
+	
 
 	@Test(groups = { "integrationTest" })
 	public void defaultCityTest() throws Exception {
@@ -51,16 +47,17 @@ public class HotelsTest extends BaseUtility {
 		ListenerUtility.test.get().log(Status.INFO, "navigate to hotels module");
 		HomePage hp = new HomePage(driver);
 		hp.getHotelsLink().click();
-		Thread.sleep(2000);
+		wu.invisibilityOfElement(driver);
+		
 		ListenerUtility.test.get().log(Status.INFO, "clear city name");
 		HotelsPage hotels = new HotelsPage(driver);
 		hotels.getClearCityBtn().click();
 
 		ListenerUtility.test.get().log(Status.INFO, "click on search hotel");
 		hotels.getHotelSearchBtn().click();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
+		
 		String hotelAddress = hotels.getHotelAddress().getText();
-
 		boolean status = hotelAddress.contains("Vancouver");
 		Assert.assertTrue(status);
 	}
@@ -70,44 +67,47 @@ public class HotelsTest extends BaseUtility {
 		ListenerUtility.test.get().log(Status.INFO, "navigate to hotels module");
 		HomePage hp = new HomePage(driver);
 		hp.getHotelsLink().click();
-		Thread.sleep(3000);
 
+		ListenerUtility.test.get().log(Status.INFO, "choose traveller");
 		HotelsPage hotels = new HotelsPage(driver);
+		wu.invisibilityOfElement(driver);
+		wu.waitUntilClickable(driver,hotels.getChooseTraveller());
 		hotels.getChooseTraveller().click();
-
 		hotels.getDecrementAdultTravellerBtn().click();
-
 		hotels.getTravellerDoneBtn().click();
-
+		
+		ListenerUtility.test.get().log(Status.INFO, "click on hotel search button");
 		hotels.getHotelSearchBtn().click();
-		Thread.sleep(3000);
+		wu.invisibilityOfElement(driver);
+		
+		ListenerUtility.test.get().log(Status.INFO, "navigate to hotel detail page");
+		wu.waitUntilClickable(driver,hotels.getViewHotelBtn());
 		hotels.getViewHotelBtn().click();
-
+		
+		ListenerUtility.test.get().log(Status.INFO, "navigate to hotel booking page");
 		HotelDetailPage hotelDetail = new HotelDetailPage(driver);
+		wu.scrollToElementMethod(driver,hotelDetail.getReserveNowBtn());
 		hotelDetail.getReserveNowBtn().click();
-
+		
+		ListenerUtility.test.get().log(Status.INFO, "fill the details");
 		HotelBookingPage hotelBook = new HotelBookingPage(driver);
 		hotelBook.getCountryCodeInput().clear();
 		hotelBook.getCountryCodeInput().sendKeys("+91");
-		Thread.sleep(3000);
-
 		hotelBook.getCheckboxBtn().click();
-
+		
+		ListenerUtility.test.get().log(Status.INFO, "navigate to billing address page");
 		hotelBook.getProceedBillingBtn().click();
-
+		
+		ListenerUtility.test.get().log(Status.INFO, "fill the details");
 		hotelBook.getCountryText().sendKeys("india");
-
 		hotelBook.getStateText().sendKeys("karnataka");
-
 		hotelBook.getCityText().sendKeys("bengaluru");
-
 		hotelBook.getPostalCodeText().sendKeys("560016");
-
 		hotelBook.getStreetText().sendKeys("kasturi nagar");
-		Thread.sleep(3000);
-
+		
+		ListenerUtility.test.get().log(Status.INFO, "navigate to payment page");
 		hotelBook.getProceedPaymentBtn().click();
-
+		wu.visibilityOfElement(driver,hotelBook.getPayNowText());
 		String actual = hotelBook.getPayNowText().getText();
 		Assert.assertEquals(actual, "Pay Now");
 
@@ -118,19 +118,21 @@ public class HotelsTest extends BaseUtility {
 		ListenerUtility.test.get().log(Status.INFO, "navigate to hotels module");
 		HomePage hp = new HomePage(driver);
 		hp.getHotelsLink().click();
-		Thread.sleep(4000);
-
+		wu.invisibilityOfElement(driver);
+		
+		ListenerUtility.test.get().log(Status.INFO, "navigate to hotel detail page");
 		HotelsPage hotels = new HotelsPage(driver);
+		wu.waitUntilClickable(driver,hotels.getViewHotelBtn());
 		hotels.getViewHotelBtn().click();
-		Thread.sleep(4000);
 
+		ListenerUtility.test.get().log(Status.INFO, "click on reserve now button");
 		HotelDetailPage hotelDetail = new HotelDetailPage(driver);
+		wu.scrollToElementMethod(driver,hotelDetail.getReserveNowBtn());
 		hotelDetail.getReserveNowBtn().click();
-
+	
 		HotelBookingPage hotelBook = new HotelBookingPage(driver);
+		wu.visibilityOfElement(driver,hotelBook.getGuestDetailsHeadingText());
 		String actual = hotelBook.getGuestDetailsHeadingText().getText();
-		Thread.sleep(2000);
-
 		Assert.assertEquals(actual, "Guest Details");
 	}
 

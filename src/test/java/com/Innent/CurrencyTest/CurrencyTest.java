@@ -16,7 +16,8 @@ public class CurrencyTest extends BaseUtility {
 
 	@Test(groups = { "smokeTest" })
 	public void currencyTest() throws Exception {
-
+		
+		wu.invisibilityOfElement(driver);
 		ListenerUtility.test.get().log(Status.INFO, "click on currency button");
 		HomePage home = new HomePage(driver);
 		home.getCurrencyBtn().click();
@@ -31,24 +32,25 @@ public class CurrencyTest extends BaseUtility {
 	@Test(groups = { "integrationTest" })
 	public void currencyIntegrationTest() throws Exception {
 		
+		
 		ListenerUtility.test.get().log(Status.INFO, "navigate to hotels module");
 		HomePage hp = new HomePage(driver);
 		hp.getHotelsLink().click();
+		wu.invisibilityOfElement(driver);
 		
 		HotelsPage hotels=new HotelsPage(driver);
 		String actual1=hotels.getHotelPriceCurrencyText().getText();
 		boolean status1=actual1.contains("CAD");
 		Assert.assertTrue(status1);
 		
+		ListenerUtility.test.get().log(Status.INFO, "click on currency button");
 		hp.getCurrencyBtn().click();
 		
+		ListenerUtility.test.get().log(Status.INFO, "click on us dollar currency");
 		hp.getUSdollarLink().click();
 		
 		String actual2=hotels.getHotelPriceCurrencyText().getText();
 		boolean status2=actual2.contains("USD");
 		Assert.assertTrue(status2);
-		
-		
-		
 	}
 }

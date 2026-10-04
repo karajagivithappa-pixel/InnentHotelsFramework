@@ -19,16 +19,17 @@ public class DashboardTest extends BaseUtility {
 
 	@Test(groups = { "systemTest" })
 	public void resetPasswordTest() throws Exception {
-
+		
 		ListenerUtility.test.get().log(Status.INFO, "navigate to dashboard module");
 		HomePage home = new HomePage(driver);
 		wu.moveToElementMethod(driver, home.getSignInIcon());
 		wu.clickOnElementMethod(driver, home.getDashboardLink());
-		Thread.sleep(1000);
-
+		
+		ListenerUtility.test.get().log(Status.INFO, "navigate to change password tab");
 		DashboardPage dashboard = new DashboardPage(driver);
 		dashboard.getChangePasswordTabLink().click();
-
+		
+		ListenerUtility.test.get().log(Status.INFO, "fill the details");
 		ChangePasswordPage password = new ChangePasswordPage(driver);
 		password.getCurrentPasswordInput().sendKeys("shivansh@123");
 
@@ -36,11 +37,11 @@ public class DashboardTest extends BaseUtility {
 
 		password.getRepeatPasswordInput().sendKeys("shivansh@123");
 
+		ListenerUtility.test.get().log(Status.INFO, "click on save button");
 		password.getSaveChangesBtn().click();
-		Thread.sleep(3000);
-
+		
+		wu.visibilityOfElement(driver,password.getSuccessMessageText());
 		String actual = password.getSuccessMessageText().getText();
-		System.out.println(actual);
 		boolean status = actual.contains("updated successfully");
 		Assert.assertTrue(status);
 
@@ -48,24 +49,24 @@ public class DashboardTest extends BaseUtility {
 
 	@Test(groups = { "systemTest" })
 	public void submitFeedbackTest() throws Exception {
-
+		
 		ListenerUtility.test.get().log(Status.INFO, "navigate to dashboard module");
 		HomePage home = new HomePage(driver);
 		wu.moveToElementMethod(driver, home.getSignInIcon());
 		wu.clickOnElementMethod(driver, home.getDashboardLink());
-		Thread.sleep(1000);
-
+		
+		ListenerUtility.test.get().log(Status.INFO, "navigate to feedback tab");
 		DashboardPage dashboard = new DashboardPage(driver);
 		dashboard.getFeedbackTabLink().click();
-
+		
+		ListenerUtility.test.get().log(Status.INFO, "fill the details");
 		FeedbackPage feedback = new FeedbackPage(driver);
-
 		feedback.getStarRatingBtn().click();
 
 		wu.selectDropdown(feedback.getFeedbackDropdownEle(),feedback.getDropdownOptionEle().getText());
-
 		feedback.getFeedbackMessageInput().sendKeys("experience with innent is good");
-
+		
+		ListenerUtility.test.get().log(Status.INFO, "click on submit button");
 		feedback.getFeedbackSubmitBtn().click();
 
 		String actual = feedback.getFeedbackReceivedText().getText();

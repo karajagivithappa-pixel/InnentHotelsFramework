@@ -5,8 +5,8 @@
     <classes>
       <class name="com.Innent.HotelsTest.HotelsTest">
         <methods>
-          <include name="bookHotelTest"/>
           <include name="configAM"/>
+          <include name="autofillGuestDetailTest"/>
           <include name="configBM"/>
           <include name="configBC"/>
           <include name="configAC"/>
