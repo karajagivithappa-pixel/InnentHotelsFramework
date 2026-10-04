@@ -43,7 +43,7 @@ public class BaseUtility {
 	
 	@AfterClass(groups = {"integrationTest","smokeTest","systemTest"})
 	public void configAC() {
-		driver.close();	
+		driver.quit();	
 	}
 	
 	

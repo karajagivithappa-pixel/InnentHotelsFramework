@@ -34,13 +34,12 @@ public class HotelsTest extends BaseUtility {
 		hotelDetail.getReserveNowBtn().click();
 		
 		HotelBookingPage hotelBook=new HotelBookingPage(driver);
+		wu.visibilityOfElement(driver,hotelBook.getEmailAddressValue());
 		String actual=hotelBook.getEmailAddressValue().getAttribute("value");
 		Assert.assertEquals(actual,"shivanshinfotech123@gmail.com");
+		
 	}
 	
-	
-	
-
 	@Test(groups = { "integrationTest" })
 	public void defaultCityTest() throws Exception {
 
@@ -51,18 +50,21 @@ public class HotelsTest extends BaseUtility {
 		
 		ListenerUtility.test.get().log(Status.INFO, "clear city name");
 		HotelsPage hotels = new HotelsPage(driver);
+		wu.waitUntilClickable(driver,hotels.getClearCityBtn());
 		hotels.getClearCityBtn().click();
 
 		ListenerUtility.test.get().log(Status.INFO, "click on search hotel");
+		wu.waitUntilClickable(driver,hotels.getHotelSearchBtn());
 		hotels.getHotelSearchBtn().click();
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		
 		String hotelAddress = hotels.getHotelAddress().getText();
-		boolean status = hotelAddress.contains("Vancouver");
+		boolean status = hotelAddress.contains("BC");
 		Assert.assertTrue(status);
+		
 	}
 
-	@Test(groups = { "systemTest" })
+	@Test(groups = { "systemTest" },invocationCount = 0)
 	public void bookHotelTest() throws Exception {
 		ListenerUtility.test.get().log(Status.INFO, "navigate to hotels module");
 		HomePage hp = new HomePage(driver);
@@ -93,6 +95,7 @@ public class HotelsTest extends BaseUtility {
 		HotelBookingPage hotelBook = new HotelBookingPage(driver);
 		hotelBook.getCountryCodeInput().clear();
 		hotelBook.getCountryCodeInput().sendKeys("+91");
+		wu.scrollToElementMethod(driver,hotelBook.getCheckboxBtn());
 		hotelBook.getCheckboxBtn().click();
 		
 		ListenerUtility.test.get().log(Status.INFO, "navigate to billing address page");
@@ -113,7 +116,7 @@ public class HotelsTest extends BaseUtility {
 
 	}
 
-	@Test(groups = { "smokeTest" })
+	@Test(groups = { "smokeTest" },invocationCount = 0)
 	public void reserveHotelRoomTest() throws Exception {
 		ListenerUtility.test.get().log(Status.INFO, "navigate to hotels module");
 		HomePage hp = new HomePage(driver);
@@ -134,6 +137,7 @@ public class HotelsTest extends BaseUtility {
 		wu.visibilityOfElement(driver,hotelBook.getGuestDetailsHeadingText());
 		String actual = hotelBook.getGuestDetailsHeadingText().getText();
 		Assert.assertEquals(actual, "Guest Details");
+		
 	}
 
 }

@@ -6,10 +6,10 @@
       <class name="com.Innent.HotelsTest.HotelsTest">
         <methods>
           <include name="configAM"/>
-          <include name="autofillGuestDetailTest"/>
           <include name="configBM"/>
           <include name="configBC"/>
           <include name="configAC"/>
+          <include name="defaultCityTest"/>
         </methods>
       </class> <!-- com.Innent.HotelsTest.HotelsTest -->
     </classes>

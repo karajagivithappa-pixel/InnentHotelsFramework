@@ -32,9 +32,7 @@ public class DashboardTest extends BaseUtility {
 		ListenerUtility.test.get().log(Status.INFO, "fill the details");
 		ChangePasswordPage password = new ChangePasswordPage(driver);
 		password.getCurrentPasswordInput().sendKeys("shivansh@123");
-
 		password.getNewPasswordInput().sendKeys("shivansh@123");
-
 		password.getRepeatPasswordInput().sendKeys("shivansh@123");
 
 		ListenerUtility.test.get().log(Status.INFO, "click on save button");
@@ -68,7 +66,8 @@ public class DashboardTest extends BaseUtility {
 		
 		ListenerUtility.test.get().log(Status.INFO, "click on submit button");
 		feedback.getFeedbackSubmitBtn().click();
-
+		
+		wu.visibilityOfElement(driver,feedback.getFeedbackReceivedText());
 		String actual = feedback.getFeedbackReceivedText().getText();
 		boolean status=actual.contains("feedback");
 		Assert.assertTrue(status);

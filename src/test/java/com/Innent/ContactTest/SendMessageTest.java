@@ -36,7 +36,8 @@ public class SendMessageTest extends BaseUtility {
 		
 		ListenerUtility.test.get().log(Status.INFO, "click on send message btn");
 		contact.getSendMessageBtn().click();
-
+		
+		wu.visibilityOfElement(driver,contact.getEnquirySubmittedText());
 		String actual = contact.getEnquirySubmittedText().getText();
 		boolean status = actual.contains("submitted");
 		Assert.assertTrue(status);

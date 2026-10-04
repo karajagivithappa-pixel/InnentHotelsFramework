@@ -17,14 +17,14 @@ public class CurrencyTest extends BaseUtility {
 	@Test(groups = { "smokeTest" })
 	public void currencyTest() throws Exception {
 		
-		wu.invisibilityOfElement(driver);
 		ListenerUtility.test.get().log(Status.INFO, "click on currency button");
 		HomePage home = new HomePage(driver);
 		home.getCurrencyBtn().click();
 
 		ListenerUtility.test.get().log(Status.INFO, "click on us dollar currency");
 		home.getUSdollarLink().click();
-
+		
+		wu.visibilityOfElement(driver,home.getCurrencyVisibleText());
 		String actual = home.getCurrencyVisibleText().getText();
 		Assert.assertEquals(actual, "USD");
 	}
@@ -32,13 +32,13 @@ public class CurrencyTest extends BaseUtility {
 	@Test(groups = { "integrationTest" })
 	public void currencyIntegrationTest() throws Exception {
 		
-		
 		ListenerUtility.test.get().log(Status.INFO, "navigate to hotels module");
 		HomePage hp = new HomePage(driver);
 		hp.getHotelsLink().click();
 		wu.invisibilityOfElement(driver);
 		
 		HotelsPage hotels=new HotelsPage(driver);
+		wu.visibilityOfElement(driver,hotels.getHotelPriceCurrencyText());
 		String actual1=hotels.getHotelPriceCurrencyText().getText();
 		boolean status1=actual1.contains("CAD");
 		Assert.assertTrue(status1);
@@ -49,6 +49,7 @@ public class CurrencyTest extends BaseUtility {
 		ListenerUtility.test.get().log(Status.INFO, "click on us dollar currency");
 		hp.getUSdollarLink().click();
 		
+		wu.visibilityOfElement(driver,hotels.getHotelPriceCurrencyText());
 		String actual2=hotels.getHotelPriceCurrencyText().getText();
 		boolean status2=actual2.contains("USD");
 		Assert.assertTrue(status2);

@@ -65,4 +65,11 @@ public class HotelsPage {
 	public WebElement getHotelPriceCurrencyText() {
 		return hotelPrice;
 	}
+	
+	@FindBy(xpath = "//input[@id='locationInputListing']")
+	private WebElement locationInput;
+	
+	public WebElement getDestinationInput() {
+		return locationInput;
+	}
 }
