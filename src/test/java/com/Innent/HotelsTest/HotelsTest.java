@@ -22,13 +22,14 @@ public class HotelsTest extends BaseUtility {
 		ListenerUtility.test.get().log(Status.INFO, "navigate to hotels module");
 		HomePage hp = new HomePage(driver);
 		hp.getHotelsLink().click();
+		Thread.sleep(4000);
 
 		ListenerUtility.test.get().log(Status.INFO, "click on view hotel button");
 		HotelsPage hotels = new HotelsPage(driver);
 		hotels.getViewHotelBtn().click();
 
 		String parentId = driver.getWindowHandle();
-		Thread.sleep(5000);
+		Thread.sleep(4000);
 		ListenerUtility.test.get().log(Status.INFO, "navigate to official hotel page");
 		HotelDetailPage hotelDetail = new HotelDetailPage(driver);
 		String officialHotel = hotelDetail.getHotelHyperLink().getText().replace("https://", "").replace("http://", "");

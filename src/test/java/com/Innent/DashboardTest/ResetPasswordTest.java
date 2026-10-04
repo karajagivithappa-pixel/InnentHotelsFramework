@@ -44,5 +44,27 @@ public class ResetPasswordTest extends BaseUtility {
 		Assert.assertTrue(status);
 
 	}
+	
+	@Test(groups = { "systemTest" })
+	public void submitFeedbackTest() throws Exception {
+		
+
+		ListenerUtility.test.get().log(Status.INFO, "navigate to dashboard module");
+		HomePage home = new HomePage(driver);
+		wu.moveToElementMethod(driver, home.getSignInIcon());
+		wu.clickOnElementMethod(driver, home.getDashboardLink());
+		Thread.sleep(1000);
+		
+		DashboardPage dashboard = new DashboardPage(driver);
+		dashboard.getFeedbackTabLink().click();
+		
+		
+		
+		
+		
+		
+		
+		
+	}
 
 }

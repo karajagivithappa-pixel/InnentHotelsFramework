@@ -16,4 +16,11 @@ public class DashboardPage {
 	public WebElement getChangePasswordTabLink() {
 		return changePasswordTab;
 	}
+	
+	@FindBy(xpath = "//a[contains(@href,'feedback')]")
+	private WebElement feedbackTab;
+	
+	public WebElement getFeedbackTabLink() {
+		return feedbackTab;
+	}
 }

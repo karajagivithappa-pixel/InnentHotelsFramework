@@ -6,9 +6,9 @@
       <class name="com.Innent.HotelsTest.HotelsTest">
         <methods>
           <include name="configAM"/>
-          <include name="reserveHotelRoomTest"/>
           <include name="configBM"/>
           <include name="configBC"/>
+          <include name="officialHotelPageTest"/>
           <include name="configAC"/>
         </methods>
       </class> <!-- com.Innent.HotelsTest.HotelsTest -->
