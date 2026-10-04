@@ -10,6 +10,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class WebdriverUtility {
 	
@@ -56,7 +57,10 @@ public class WebdriverUtility {
 		a.click(element).perform();
 	}
 	
-	
+	public void selectDropdown(WebElement selectEle, String optionText) {
+		Select s=new Select(selectEle);
+		s.selectByVisibleText(optionText);
+	}
 	
 	
 	

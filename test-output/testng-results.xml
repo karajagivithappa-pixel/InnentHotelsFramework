@@ -2,31 +2,31 @@
 <testng-results ignored="4" total="5" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-10-04T09:11:32 IST" name="Default suite" finished-at="2026-10-04T09:12:13 IST" duration-ms="41284">
+  <suite started-at="2026-10-04T11:24:48 IST" name="Default suite" finished-at="2026-10-04T11:26:20 IST" duration-ms="91578">
     <groups>
-      <group name="integrationTest">
-        <method signature="HotelsTest.officialHotelPageTest()[pri:0, instance:com.Innent.HotelsTest.HotelsTest@4f18837a]" name="officialHotelPageTest" class="com.Innent.HotelsTest.HotelsTest"/>
-      </group> <!-- integrationTest -->
+      <group name="systemTest">
+        <method signature="HotelsTest.bookHotelTest()[pri:0, instance:com.Innent.HotelsTest.HotelsTest@4f18837a]" name="bookHotelTest" class="com.Innent.HotelsTest.HotelsTest"/>
+      </group> <!-- systemTest -->
     </groups>
-    <test started-at="2026-10-04T09:11:32 IST" name="Default test" finished-at="2026-10-04T09:12:13 IST" duration-ms="41284">
+    <test started-at="2026-10-04T11:24:48 IST" name="Default test" finished-at="2026-10-04T11:26:20 IST" duration-ms="91578">
       <class name="com.Innent.HotelsTest.HotelsTest">
-        <test-method is-config="true" signature="configBC()[pri:0, instance:com.Innent.HotelsTest.HotelsTest@4f18837a]" started-at="2026-10-04T09:11:32 IST" name="configBC" finished-at="2026-10-04T09:11:40 IST" duration-ms="7474" status="PASS">
+        <test-method is-config="true" signature="configBC()[pri:0, instance:com.Innent.HotelsTest.HotelsTest@4f18837a]" started-at="2026-10-04T11:24:48 IST" name="configBC" finished-at="2026-10-04T11:24:54 IST" duration-ms="6126" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- configBC -->
-        <test-method is-config="true" signature="configBM()[pri:0, instance:com.Innent.HotelsTest.HotelsTest@4f18837a]" started-at="2026-10-04T09:11:40 IST" name="configBM" finished-at="2026-10-04T09:11:42 IST" duration-ms="2082" status="PASS">
+        <test-method is-config="true" signature="configBM()[pri:0, instance:com.Innent.HotelsTest.HotelsTest@4f18837a]" started-at="2026-10-04T11:24:54 IST" name="configBM" finished-at="2026-10-04T11:24:55 IST" duration-ms="1242" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- configBM -->
-        <test-method signature="officialHotelPageTest()[pri:0, instance:com.Innent.HotelsTest.HotelsTest@4f18837a]" started-at="2026-10-04T09:11:42 IST" name="officialHotelPageTest" finished-at="2026-10-04T09:12:11 IST" duration-ms="29465" status="PASS">
+        <test-method signature="bookHotelTest()[pri:0, instance:com.Innent.HotelsTest.HotelsTest@4f18837a]" started-at="2026-10-04T11:24:55 IST" name="bookHotelTest" finished-at="2026-10-04T11:26:12 IST" duration-ms="76645" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- officialHotelPageTest -->
-        <test-method is-config="true" signature="configAM()[pri:0, instance:com.Innent.HotelsTest.HotelsTest@4f18837a]" started-at="2026-10-04T09:12:11 IST" name="configAM" finished-at="2026-10-04T09:12:13 IST" duration-ms="1689" status="PASS">
+        </test-method> <!-- bookHotelTest -->
+        <test-method is-config="true" signature="configAM()[pri:0, instance:com.Innent.HotelsTest.HotelsTest@4f18837a]" started-at="2026-10-04T11:26:12 IST" name="configAM" finished-at="2026-10-04T11:26:19 IST" duration-ms="7224" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- configAM -->
-        <test-method is-config="true" signature="configAC()[pri:0, instance:com.Innent.HotelsTest.HotelsTest@4f18837a]" started-at="2026-10-04T09:12:13 IST" name="configAC" finished-at="2026-10-04T09:12:13 IST" duration-ms="474" status="PASS">
+        <test-method is-config="true" signature="configAC()[pri:0, instance:com.Innent.HotelsTest.HotelsTest@4f18837a]" started-at="2026-10-04T11:26:19 IST" name="configAC" finished-at="2026-10-04T11:26:20 IST" duration-ms="304" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- configAC -->

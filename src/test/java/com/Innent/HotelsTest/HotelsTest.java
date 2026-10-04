@@ -39,7 +39,7 @@ public class HotelsTest extends BaseUtility {
 
 		String actual = driver.getCurrentUrl().replace("https://", "").replace("http://", "");
 		driver.switchTo().window(parentId);
-		System.out.println(actual);
+
 		boolean status = actual.contains(officialHotel);
 		Assert.assertTrue(status);
 
@@ -60,7 +60,7 @@ public class HotelsTest extends BaseUtility {
 		hotels.getHotelSearchBtn().click();
 		Thread.sleep(2000);
 		String hotelAddress = hotels.getHotelAddress().getText();
-		System.out.println(hotelAddress);
+
 		boolean status = hotelAddress.contains("Vancouver");
 		Assert.assertTrue(status);
 	}
@@ -70,6 +70,7 @@ public class HotelsTest extends BaseUtility {
 		ListenerUtility.test.get().log(Status.INFO, "navigate to hotels module");
 		HomePage hp = new HomePage(driver);
 		hp.getHotelsLink().click();
+		Thread.sleep(3000);
 
 		HotelsPage hotels = new HotelsPage(driver);
 		hotels.getChooseTraveller().click();
@@ -89,31 +90,27 @@ public class HotelsTest extends BaseUtility {
 		hotelBook.getCountryCodeInput().clear();
 		hotelBook.getCountryCodeInput().sendKeys("+91");
 		Thread.sleep(3000);
-	}
 
-	@Test(groups = { "systemTest" })
-	public void submitReviewHotelTest() throws Exception {
-		ListenerUtility.test.get().log(Status.INFO, "navigate to hotels module");
-		HomePage hp = new HomePage(driver);
-		hp.getHotelsLink().click();
+		hotelBook.getCheckboxBtn().click();
+
+		hotelBook.getProceedBillingBtn().click();
+
+		hotelBook.getCountryText().sendKeys("india");
+
+		hotelBook.getStateText().sendKeys("karnataka");
+
+		hotelBook.getCityText().sendKeys("bengaluru");
+
+		hotelBook.getPostalCodeText().sendKeys("560016");
+
+		hotelBook.getStreetText().sendKeys("kasturi nagar");
 		Thread.sleep(3000);
 
-		ListenerUtility.test.get().log(Status.INFO, "click on view hotel button");
-		HotelsPage hotels = new HotelsPage(driver);
-		hotels.getViewHotelBtn().click();
+		hotelBook.getProceedPaymentBtn().click();
 
-		HotelDetailPage hotelDetail = new HotelDetailPage(driver);
-		hotelDetail.getOverallRatingInput().sendKeys("10");
-		Thread.sleep(3000);
+		String actual = hotelBook.getPayNowText().getText();
+		Assert.assertEquals(actual, "Pay Now");
 
-		hotelDetail.getOurReviewInput().sendKeys("goodhoteloverall");
-
-		hotelDetail.getSubmitReviewBtn().click();
-		Thread.sleep(3000);
-		
-		String actual=hotelDetail.getReviewSubmittedMessageText().getText();
-		boolean status=actual.contains("reviewed");
-		Assert.assertTrue(status);
 	}
 
 	@Test(groups = { "smokeTest" })

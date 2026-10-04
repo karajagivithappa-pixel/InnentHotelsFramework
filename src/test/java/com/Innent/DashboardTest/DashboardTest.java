@@ -8,13 +8,14 @@ import com.aventstack.extentreports.Status;
 
 import businessUtility.ChangePasswordPage;
 import businessUtility.DashboardPage;
+import businessUtility.FeedbackPage;
 import businessUtility.HomePage;
 import genericUtility.BaseUtility;
 import genericUtility.ListenerUtility;
 
 @Listeners(genericUtility.ListenerUtility.class)
 
-public class ResetPasswordTest extends BaseUtility {
+public class DashboardTest extends BaseUtility {
 
 	@Test(groups = { "systemTest" })
 	public void resetPasswordTest() throws Exception {
@@ -44,27 +45,33 @@ public class ResetPasswordTest extends BaseUtility {
 		Assert.assertTrue(status);
 
 	}
-	
+
 	@Test(groups = { "systemTest" })
 	public void submitFeedbackTest() throws Exception {
-		
 
 		ListenerUtility.test.get().log(Status.INFO, "navigate to dashboard module");
 		HomePage home = new HomePage(driver);
 		wu.moveToElementMethod(driver, home.getSignInIcon());
 		wu.clickOnElementMethod(driver, home.getDashboardLink());
 		Thread.sleep(1000);
-		
+
 		DashboardPage dashboard = new DashboardPage(driver);
 		dashboard.getFeedbackTabLink().click();
-		
-		
-		
-		
-		
-		
-		
-		
+
+		FeedbackPage feedback = new FeedbackPage(driver);
+
+		feedback.getStarRatingBtn().click();
+
+		wu.selectDropdown(feedback.getFeedbackDropdownEle(),feedback.getDropdownOptionEle().getText());
+
+		feedback.getFeedbackMessageInput().sendKeys("experience with innent is good");
+
+		feedback.getFeedbackSubmitBtn().click();
+
+		String actual = feedback.getFeedbackReceivedText().getText();
+		boolean status=actual.contains("feedback");
+		Assert.assertTrue(status);
+
 	}
 
 }

@@ -42,7 +42,7 @@ public class FeedbackPage {
 	@FindBy(id = "submitFeedbackBtn")
 	private WebElement submitFeedback;
 	
-	public WebElement getSubmitFeedbackBtn() {
+	public WebElement getFeedbackSubmitBtn() {
 		return submitFeedback;
 	}
 	

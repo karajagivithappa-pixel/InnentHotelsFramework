@@ -3,7 +3,7 @@
 <suite name="Suite">
 <groups>
 	<run>
-		<include name="integrationTest"/>
+		<include name="systemTest"/>
 	</run>
 </groups>
 <listeners>

@@ -16,7 +16,7 @@ public class BaseUtility {
 	public WebDriver driver;
 	public static ThreadLocal<WebDriver> localDriver=new ThreadLocal<WebDriver>();
 	
-	@BeforeClass(groups = {"integrationTest","smokeTest"})
+	@BeforeClass(groups = {"integrationTest","smokeTest","systemTest"})
 	public void configBC() throws Exception {
 		String browserName=pu.getPropertyData("browser");
 		driver=wu.launchBrowser(browserName);
@@ -27,19 +27,19 @@ public class BaseUtility {
 		driver.get(pu.getPropertyData("url"));
 	}
 	
-	@BeforeMethod(groups = {"integrationTest","smokeTest"})
+	@BeforeMethod(groups = {"integrationTest","smokeTest","systemTest"})
 	public void configBM() {
 		HomePage hp=new HomePage(driver);
 		hp.userSignIn(driver);
 	}
 	
-	@AfterMethod(groups = {"integrationTest","smokeTest"})
+	@AfterMethod(groups = {"integrationTest","smokeTest","systemTest"})
 	public void configAM() {
 		HomePage hp=new HomePage(driver);
 		hp.userSignOut(driver);
 	}
 	
-	@AfterClass(groups = {"integrationTest","smokeTest"})
+	@AfterClass(groups = {"integrationTest","smokeTest","systemTest"})
 	public void configAC() {
 		driver.quit();
 	}
