@@ -17,7 +17,7 @@ import genericUtility.ListenerUtility;
 
 public class DashboardTest extends BaseUtility {
 
-	@Test(groups = { "systemTest" },invocationCount = 0)
+	@Test(groups = { "systemTest" })
 	public void resetPasswordTest() throws Exception {
 		
 		ListenerUtility.test.get().log(Status.INFO, "navigate to dashboard module");
