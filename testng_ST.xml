@@ -11,7 +11,7 @@
 </listeners>
   <test  name="Test_ST">
     <classes>
-      <class name="com.Innent.ContactTest.SendMessageTest"/>
+      <class name="com.Innent.CurrencyTest.CurrencyTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

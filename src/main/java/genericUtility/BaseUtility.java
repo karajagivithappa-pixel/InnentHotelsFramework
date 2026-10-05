@@ -33,7 +33,6 @@ public class BaseUtility {
 		driver.get(pu.getPropertyData("url"));
 		HomePage home = new HomePage(driver);
 		home.userSignIn(driver, username, password);
-		//wu.javascriptClickElement(driver,home.getLearnMoreCloseBtn());
 		home.getCookieAcceptBtn().click();
 	}
 
