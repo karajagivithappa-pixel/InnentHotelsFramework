@@ -17,6 +17,7 @@ public class BaseUtility {
 	public WebDriver driver;
 	public static ThreadLocal<WebDriver> localDriver=new ThreadLocal<WebDriver>();
 	
+	/*
 	@BeforeClass(groups = {"integrationTest","smokeTest","systemTest"})
 	public void configBC() throws Exception {
 		String browserName=pu.getPropertyData("browser");
@@ -26,9 +27,15 @@ public class BaseUtility {
 		wu.implicitWait(driver);
 		driver.get(pu.getPropertyData("url"));
 	}
-	
+	*/
 	@BeforeMethod(groups = {"integrationTest","smokeTest","systemTest"})
-	public void configBM() {
+	public void configBM() throws Exception {
+		String browserName=pu.getPropertyData("browser");
+		driver=wu.launchBrowser(browserName);
+		localDriver.set(driver);
+		wu.maximizeBrowser(driver);
+		wu.implicitWait(driver);
+		driver.get(pu.getPropertyData("url"));
 		HomePage hp=new HomePage(driver);
 		hp.userSignIn(driver);
 		driver.findElement(By.xpath("//button[@onclick='cookieAccept()']")).click();
@@ -39,13 +46,14 @@ public class BaseUtility {
 		Thread.sleep(2000);
 		HomePage hp=new HomePage(driver);
 		hp.userSignOut(driver);
+		driver.quit();
 	}
-	
+	/*
 	@AfterClass(groups = {"integrationTest","smokeTest","systemTest"})
 	public void configAC() {
 		driver.quit();	
 	}
-	
+	*/
 	
 	
 	

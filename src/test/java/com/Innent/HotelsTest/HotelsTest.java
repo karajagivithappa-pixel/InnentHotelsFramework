@@ -64,7 +64,7 @@ public class HotelsTest extends BaseUtility {
 		
 	}
 
-	@Test(groups = { "systemTest" },invocationCount = 0)
+	@Test(groups = { "systemTest" })
 	public void bookHotelTest() throws Exception {
 		ListenerUtility.test.get().log(Status.INFO, "navigate to hotels module");
 		HomePage hp = new HomePage(driver);
@@ -116,7 +116,7 @@ public class HotelsTest extends BaseUtility {
 
 	}
 
-	@Test(groups = { "smokeTest" },invocationCount = 0)
+	@Test(groups = { "smokeTest" })
 	public void reserveHotelRoomTest() throws Exception {
 		ListenerUtility.test.get().log(Status.INFO, "navigate to hotels module");
 		HomePage hp = new HomePage(driver);
