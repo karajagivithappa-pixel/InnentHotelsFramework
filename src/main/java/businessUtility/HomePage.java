@@ -85,6 +85,13 @@ public class HomePage {
 		return cookieAccept;
 	}
 	
+	@FindBy(xpath = "//button[@onclick='innentCloseCepToast()']")
+	private WebElement learnMoreClose;
+	
+	public WebElement getLearnMoreCloseBtn() {
+		return learnMoreClose;
+	}
+	
 	public void userSignIn(WebDriver driver,String username,String password) {
 		Actions a=new Actions(driver);
 		a.moveToElement(signInIcon).perform();

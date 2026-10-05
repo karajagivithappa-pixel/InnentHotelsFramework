@@ -34,8 +34,9 @@ public class CurrencyTest extends BaseUtility {
 		
 		ListenerUtility.test.get().log(Status.INFO, "navigate to hotels module");
 		HomePage home = new HomePage(driver);
-		home.getHotelsLink().click();
-		wu.invisibilityOfElement(driver);
+		//home.getHotelsLink().click();
+		//wu.invisibilityOfElement(driver);
+		wu.javascriptClickElement(driver,home.getHotelsLink());
 		
 		HotelsPage hotels=new HotelsPage(driver);
 		wu.visibilityOfElement(driver,hotels.getHotelPriceCurrencyText());

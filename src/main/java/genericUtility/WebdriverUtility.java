@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.util.Set;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -88,7 +89,21 @@ public class WebdriverUtility {
 		
 	}
 	
+	public void scrollIntoView(WebDriver driver, WebElement element) {
+	    JavascriptExecutor js = (JavascriptExecutor) driver;
+	    js.executeScript(
+	    	    "arguments[0].scrollIntoView({block: 'center'});",
+	    	    element
+	    	);
+	}
 	
+	public void javascriptClickElement(WebDriver driver, WebElement element) {
+	    JavascriptExecutor js = (JavascriptExecutor) driver;
+	    js.executeScript(
+	    	    "arguments[0].click();",
+	    	    element
+	    	);
+	}
 	
 	
 	

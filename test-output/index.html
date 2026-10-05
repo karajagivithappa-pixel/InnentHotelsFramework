@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\vitha\AppData\Local\Temp\testng-eclipse--1299654618\testng-customsuite.xml</span>
+                    <span>C:\Users\vitha\AppData\Local\Temp\testng-eclipse-1045844123\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">2 methods,   2 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -103,7 +103,12 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.Innent.HotelsTest.HotelsTest" class="method navigator-link" hash-for-method="autofillGuestDetailTest">autofillGuestDetailTest</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.Innent.DashboardTest.DashboardTest" class="method navigator-link" hash-for-method="resetPasswordTest">resetPasswordTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.Innent.DashboardTest.DashboardTest" class="method navigator-link" hash-for-method="submitFeedbackTest">submitFeedbackTest</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -121,14 +126,21 @@
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">com.Innent.HotelsTest.HotelsTest</span>
+              <span class="class-name">com.Innent.DashboardTest.DashboardTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="autofillGuestDetailTest">
-                  </a> <!-- autofillGuestDetailTest -->
-                  <span class="method-name">autofillGuestDetailTest</span>
+                  <a name="resetPasswordTest">
+                  </a> <!-- resetPasswordTest -->
+                  <span class="method-name">resetPasswordTest</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="submitFeedbackTest">
+                  </a> <!-- submitFeedbackTest -->
+                  <span class="method-name">submitFeedbackTest</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -136,7 +148,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\vitha\AppData\Local\Temp\testng-eclipse--1299654618\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\vitha\AppData\Local\Temp\testng-eclipse-1045844123\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -145,11 +157,7 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.Innent.HotelsTest.HotelsTest&quot;&gt;
-        &lt;methods&gt;
-          &lt;include name=&quot;autofillGuestDetailTest&quot;/&gt;
-        &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- com.Innent.HotelsTest.HotelsTest --&gt;
+      &lt;class name=&quot;com.Innent.DashboardTest.DashboardTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -174,10 +182,14 @@
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="test-group">
-              <span class="test-group-name">integrationTest</span>
+              <span class="test-group-name">systemTest</span>
               <br/>
               <div class="method-in-group">
-                <span class="method-in-group-name">autofillGuestDetailTest</span>
+                <span class="method-in-group-name">resetPasswordTest</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">submitFeedbackTest</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -197,16 +209,20 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(2);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'autofillGuestDetailTest')
-data.setCell(0, 2, 'com.Innent.HotelsTest.HotelsTest')
-data.setCell(0, 3, 47009);
+data.setCell(0, 1, 'resetPasswordTest')
+data.setCell(0, 2, 'com.Innent.DashboardTest.DashboardTest')
+data.setCell(0, 3, 33299);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'submitFeedbackTest')
+data.setCell(1, 2, 'com.Innent.DashboardTest.DashboardTest')
+data.setCell(1, 3, 22571);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 47 seconds</span>
+              <span class="suite-total-time">Total running time: 55 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -221,20 +237,9 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">3 ignored methods</span>
+            <span class="header-content">0 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">com.Innent.HotelsTest.HotelsTest</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">reserveHotelRoomTest</span>
-                <br/>
-                <span class="ignored-method-name">defaultCityTest</span>
-                <br/>
-                <span class="ignored-method-name">bookHotelTest</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Default_suite" class="panel">
@@ -243,18 +248,30 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.Innent.HotelsTest.HotelsTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.Innent.DashboardTest.DashboardTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">configBM</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">autofillGuestDetailTest</span>
-                <span class="method-start">26775 ms</span>
+                <span class="method-name">resetPasswordTest</span>
+                <span class="method-start">26852 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">configAM</span>
-                <span class="method-start">73786 ms</span>
+                <span class="method-start">60153 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">configBM</span>
+                <span class="method-start">82666 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">submitFeedbackTest</span>
+                <span class="method-start">104586 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">configAM</span>
+                <span class="method-start">127157 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

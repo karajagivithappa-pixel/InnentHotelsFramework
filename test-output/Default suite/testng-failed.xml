@@ -3,15 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.Innent.HotelsTest.HotelsTest">
+      <class name="com.Innent.ContactTest.SendMessageTest">
         <methods>
           <include name="configAM"/>
+          <include name="sendMessageTest"/>
           <include name="configBM"/>
-          <include name="configBC"/>
-          <include name="configAC"/>
-          <include name="defaultCityTest"/>
         </methods>
-      </class> <!-- com.Innent.HotelsTest.HotelsTest -->
+      </class> <!-- com.Innent.ContactTest.SendMessageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
