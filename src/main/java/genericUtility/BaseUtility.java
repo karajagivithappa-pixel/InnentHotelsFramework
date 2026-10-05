@@ -38,7 +38,7 @@ public class BaseUtility {
 		driver.get(pu.getPropertyData("url"));
 		HomePage hp=new HomePage(driver);
 		hp.userSignIn(driver);
-		//driver.findElement(By.xpath("//button[@onclick='cookieAccept()']")).click();
+		driver.findElement(By.xpath("//button[@onclick='cookieAccept()']")).click();
 	}
 	
 	@AfterMethod(groups = {"integrationTest","smokeTest","systemTest"})
