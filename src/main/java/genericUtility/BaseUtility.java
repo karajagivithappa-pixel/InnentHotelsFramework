@@ -34,7 +34,7 @@ public class BaseUtility {
 		HomePage home = new HomePage(driver);
 		home.userSignIn(driver, username, password);
 		//wu.javascriptClickElement(driver,home.getLearnMoreCloseBtn());
-		// home.getCookieAcceptBtn().click();
+		home.getCookieAcceptBtn().click();
 	}
 
 	@AfterMethod(groups = { "integrationTest", "smokeTest", "systemTest" })
