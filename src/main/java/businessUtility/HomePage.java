@@ -78,11 +78,18 @@ public class HomePage {
 		return currencyText;
 	}
 	
-	public void userSignIn(WebDriver driver) {
+	@FindBy(xpath = "//button[@onclick='cookieAccept()']")
+	private WebElement cookieAccept;
+	
+	public WebElement getCookieAcceptBtn() {
+		return cookieAccept;
+	}
+	
+	public void userSignIn(WebDriver driver,String username,String password) {
 		Actions a=new Actions(driver);
 		a.moveToElement(signInIcon).perform();
 		a.click(signInLink).perform();
-		a.sendKeys(email,"shivanshinfotech123@gmail.com",Keys.TAB,"shivansh@123",Keys.ENTER).perform();
+		a.sendKeys(email,username,Keys.TAB,password,Keys.ENTER).perform();
 	}
 	
 	public void userSignOut(WebDriver driver) {

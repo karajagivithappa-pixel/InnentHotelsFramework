@@ -19,8 +19,8 @@ public class HotelsTest extends BaseUtility {
 	@Test(groups = { "integrationTest" })
 	public void autofillGuestDetailTest() {
 		ListenerUtility.test.get().log(Status.INFO, "navigate to hotels module");
-		HomePage hp = new HomePage(driver);
-		hp.getHotelsLink().click();
+		HomePage home = new HomePage(driver);
+		home.getHotelsLink().click();
 		wu.invisibilityOfElement(driver);
 		
 		ListenerUtility.test.get().log(Status.INFO, "navigate to hotel detail page");
@@ -44,8 +44,8 @@ public class HotelsTest extends BaseUtility {
 	public void defaultCityTest() throws Exception {
 
 		ListenerUtility.test.get().log(Status.INFO, "navigate to hotels module");
-		HomePage hp = new HomePage(driver);
-		hp.getHotelsLink().click();
+		HomePage home = new HomePage(driver);
+		home.getHotelsLink().click();
 		wu.invisibilityOfElement(driver);
 		
 		ListenerUtility.test.get().log(Status.INFO, "clear city name");
@@ -67,8 +67,8 @@ public class HotelsTest extends BaseUtility {
 	@Test(groups = { "systemTest" })
 	public void bookHotelTest() throws Exception {
 		ListenerUtility.test.get().log(Status.INFO, "navigate to hotels module");
-		HomePage hp = new HomePage(driver);
-		hp.getHotelsLink().click();
+		HomePage home = new HomePage(driver);
+		home.getHotelsLink().click();
 
 		ListenerUtility.test.get().log(Status.INFO, "choose traveller");
 		HotelsPage hotels = new HotelsPage(driver);
@@ -119,8 +119,8 @@ public class HotelsTest extends BaseUtility {
 	@Test(groups = { "smokeTest" })
 	public void reserveHotelRoomTest() throws Exception {
 		ListenerUtility.test.get().log(Status.INFO, "navigate to hotels module");
-		HomePage hp = new HomePage(driver);
-		hp.getHotelsLink().click();
+		HomePage home = new HomePage(driver);
+		home.getHotelsLink().click();
 		wu.invisibilityOfElement(driver);
 		
 		ListenerUtility.test.get().log(Status.INFO, "navigate to hotel detail page");

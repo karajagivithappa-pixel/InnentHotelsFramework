@@ -33,8 +33,8 @@ public class CurrencyTest extends BaseUtility {
 	public void currencyIntegrationTest() throws Exception {
 		
 		ListenerUtility.test.get().log(Status.INFO, "navigate to hotels module");
-		HomePage hp = new HomePage(driver);
-		hp.getHotelsLink().click();
+		HomePage home = new HomePage(driver);
+		home.getHotelsLink().click();
 		wu.invisibilityOfElement(driver);
 		
 		HotelsPage hotels=new HotelsPage(driver);
@@ -44,10 +44,10 @@ public class CurrencyTest extends BaseUtility {
 		Assert.assertTrue(status1);
 		
 		ListenerUtility.test.get().log(Status.INFO, "click on currency button");
-		hp.getCurrencyBtn().click();
+		home.getCurrencyBtn().click();
 		
 		ListenerUtility.test.get().log(Status.INFO, "click on us dollar currency");
-		hp.getUSdollarLink().click();
+		home.getUSdollarLink().click();
 		
 		wu.visibilityOfElement(driver,hotels.getHotelPriceCurrencyText());
 		String actual2=hotels.getHotelPriceCurrencyText().getText();
