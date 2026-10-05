@@ -62,6 +62,11 @@ public class WebdriverUtility {
 		a.click(element).perform();
 	}
 	
+	public void sendKeysMethod(WebDriver driver,WebElement element,String data) {
+		Actions a=new Actions(driver);
+		a.sendKeys(element,data).perform();
+	}
+	
 	public void scrollToElementMethod(WebDriver driver,WebElement element) {
 		Actions a=new Actions(driver);
 		a.scrollToElement(element).perform();
@@ -104,8 +109,6 @@ public class WebdriverUtility {
 	    	    element
 	    	);
 	}
-	
-	
-	
+
 	
 }

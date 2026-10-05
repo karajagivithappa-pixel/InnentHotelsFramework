@@ -18,24 +18,30 @@ public class SendMessageTest extends BaseUtility {
 
 	@Test(groups = { "smokeTest" })
 	public void sendMessageTest() throws Exception {
-
+		
+		String name=eu.readDataExcel("contact",1,0);
+		String email=eu.readDataExcel("contact",1,1);
+		String phone=eu.readDataExcel("contact",1,2);
+		String issue=eu.readDataExcel("contact",1,3);
+		String expected=eu.readDataExcel("contact",1,4);
+		
 		ListenerUtility.test.get().log(Status.INFO, "click on contact module");
 		HomePage home = new HomePage(driver);
 		home.getContactLink().click();
 		ContactPage contact = new ContactPage(driver);
 		
 		ListenerUtility.test.get().log(Status.INFO, "fill all the details");
-		contact.getNameInput().sendKeys("shivansh");
-		contact.getEmailInput().sendKeys("shivanshinfotech123@gmail.com");
-		contact.getPhoneInput().sendKeys("6363986874");
-		contact.getMessageInput().sendKeys("there is an issue with smart stay service");
+		contact.getNameInput().sendKeys(name);
+		contact.getEmailInput().sendKeys(email);
+		contact.getPhoneInput().sendKeys(phone);
+		contact.getMessageInput().sendKeys(issue);
 		
 		ListenerUtility.test.get().log(Status.INFO, "click on send message btn");
 		contact.getSendMessageBtn().click();
 		
 		wu.visibilityOfElement(driver,contact.getEnquirySubmittedText());
 		String actual = contact.getEnquirySubmittedText().getText();
-		boolean status = actual.contains("submitted");
+		boolean status = actual.contains(expected);
 		Assert.assertTrue(status);
 
 	}

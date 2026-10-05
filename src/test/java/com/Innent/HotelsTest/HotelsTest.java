@@ -17,7 +17,10 @@ import genericUtility.ListenerUtility;
 public class HotelsTest extends BaseUtility {
 
 	@Test(groups = { "integrationTest" })
-	public void autofillGuestDetailTest() {
+	public void autofillGuestDetailTest() throws Exception {
+		
+		String expected=eu.readDataExcel("hotel",2,0);
+		
 		ListenerUtility.test.get().log(Status.INFO, "navigate to hotels module");
 		HomePage home = new HomePage(driver);
 		//home.getHotelsLink().click();
@@ -39,13 +42,15 @@ public class HotelsTest extends BaseUtility {
 		HotelBookingPage hotelBook=new HotelBookingPage(driver);
 		wu.visibilityOfElement(driver,hotelBook.getEmailAddressValue());
 		String actual=hotelBook.getEmailAddressValue().getAttribute("value");
-		Assert.assertEquals(actual,"shivanshinfotech123@gmail.com");
+		Assert.assertEquals(actual,expected);
 		
 	}
 	
 	@Test(groups = { "integrationTest" })
 	public void defaultCityTest() throws Exception {
 
+		String expected=eu.readDataExcel("hotel",6,0);
+		
 		ListenerUtility.test.get().log(Status.INFO, "navigate to hotels module");
 		HomePage home = new HomePage(driver);
 		//home.getHotelsLink().click();
@@ -65,13 +70,22 @@ public class HotelsTest extends BaseUtility {
 		Thread.sleep(4000);
 		
 		String hotelAddress = hotels.getHotelAddress().getText();
-		boolean status = hotelAddress.contains("BC");
+		boolean status = hotelAddress.contains(expected);
 		Assert.assertTrue(status);
 		
 	}
 
 	@Test(groups = { "systemTest" })
 	public void bookHotelTest() throws Exception {
+		
+		String countryCode=eu.readDataExcel("hotel",10,0);
+		String country=eu.readDataExcel("hotel",10,1);
+		String state=eu.readDataExcel("hotel",10,2);
+		String city=eu.readDataExcel("hotel",10,3);
+		String postalCode=eu.readDataExcel("hotel",10,4);
+		String street=eu.readDataExcel("hotel",10,5);
+		String expected=eu.readDataExcel("hotel",10,6);
+		
 		ListenerUtility.test.get().log(Status.INFO, "navigate to hotels module");
 		HomePage home = new HomePage(driver);
 		//home.getHotelsLink().click();
@@ -87,9 +101,9 @@ public class HotelsTest extends BaseUtility {
 		hotels.getTravellerDoneBtn().click();
 		
 		ListenerUtility.test.get().log(Status.INFO, "click on hotel search button");
-		hotels.getHotelSearchBtn().click();
+		//hotels.getHotelSearchBtn().click();
 		wu.javascriptClickElement(driver,hotels.getHotelSearchBtn());
-		
+		Thread.sleep(2000);
 		ListenerUtility.test.get().log(Status.INFO, "navigate to hotel detail page");
 		//wu.invisibilityOfElement(driver);
 		//wu.waitUntilClickable(driver,hotels.getViewHotelBtn());
@@ -105,7 +119,7 @@ public class HotelsTest extends BaseUtility {
 		ListenerUtility.test.get().log(Status.INFO, "fill the details");
 		HotelBookingPage hotelBook = new HotelBookingPage(driver);
 		hotelBook.getCountryCodeInput().clear();
-		hotelBook.getCountryCodeInput().sendKeys("+91");
+		hotelBook.getCountryCodeInput().sendKeys(countryCode);
 		wu.javascriptClickElement(driver,hotelBook.getCheckboxBtn());
 		
 		ListenerUtility.test.get().log(Status.INFO, "navigate to billing address page");
@@ -113,22 +127,26 @@ public class HotelsTest extends BaseUtility {
 		wu.javascriptClickElement(driver,hotelBook.getProceedBillingBtn());
 		
 		ListenerUtility.test.get().log(Status.INFO, "fill the details");
-		hotelBook.getCountryText().sendKeys("india");
-		hotelBook.getStateText().sendKeys("karnataka");
-		hotelBook.getCityText().sendKeys("bengaluru");
-		hotelBook.getPostalCodeText().sendKeys("560016");
-		hotelBook.getStreetText().sendKeys("kasturi nagar");
+		wu.waitUntilClickable(driver,hotelBook.getStateText());
+		hotelBook.getCountryText().sendKeys(country);
+		hotelBook.getStateText().sendKeys(state);
+		hotelBook.getCityText().sendKeys(city);
+		hotelBook.getPostalCodeText().sendKeys(postalCode);
+		hotelBook.getStreetText().sendKeys(street);
 		
 		ListenerUtility.test.get().log(Status.INFO, "navigate to payment page");
 		wu.javascriptClickElement(driver,hotelBook.getProceedPaymentBtn());
 		
 		wu.visibilityOfElement(driver,hotelBook.getPayNowText());
 		String actual = hotelBook.getPayNowText().getText();
-		Assert.assertEquals(actual, "Pay Now");
+		Assert.assertEquals(actual,expected);
 	}
 
 	@Test(groups = { "smokeTest" })
 	public void reserveHotelRoomTest() throws Exception {
+		
+		String expected=eu.readDataExcel("hotel",14,0);
+		
 		ListenerUtility.test.get().log(Status.INFO, "navigate to hotels module");
 		HomePage home = new HomePage(driver);
 		//home.getHotelsLink().click();
@@ -150,7 +168,7 @@ public class HotelsTest extends BaseUtility {
 		HotelBookingPage hotelBook = new HotelBookingPage(driver);
 		wu.visibilityOfElement(driver,hotelBook.getGuestDetailsHeadingText());
 		String actual = hotelBook.getGuestDetailsHeadingText().getText();
-		Assert.assertEquals(actual, "Guest Details");
+		Assert.assertEquals(actual,expected);
 		
 	}
 

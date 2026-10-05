@@ -20,6 +20,9 @@ public class DashboardTest extends BaseUtility {
 	@Test(groups = { "systemTest" })
 	public void resetPasswordTest() throws Exception {
 		
+		String passwordData=eu.readDataExcel("dashboard",2,0);
+		String expected=eu.readDataExcel("dashboard",2,1);
+		
 		ListenerUtility.test.get().log(Status.INFO, "navigate to dashboard module");
 		HomePage home = new HomePage(driver);
 		wu.moveToElementMethod(driver, home.getSignInIcon());
@@ -31,22 +34,25 @@ public class DashboardTest extends BaseUtility {
 		
 		ListenerUtility.test.get().log(Status.INFO, "fill the details");
 		ChangePasswordPage password = new ChangePasswordPage(driver);
-		password.getCurrentPasswordInput().sendKeys("shivansh@123");
-		password.getNewPasswordInput().sendKeys("shivansh@123");
-		password.getRepeatPasswordInput().sendKeys("shivansh@123");
+		password.getCurrentPasswordInput().sendKeys(passwordData);
+		password.getNewPasswordInput().sendKeys(passwordData);
+		password.getRepeatPasswordInput().sendKeys(passwordData);
 
 		ListenerUtility.test.get().log(Status.INFO, "click on save button");
 		password.getSaveChangesBtn().click();
 		
 		wu.visibilityOfElement(driver,password.getSuccessMessageText());
 		String actual = password.getSuccessMessageText().getText();
-		boolean status = actual.contains("updated successfully");
+		boolean status = actual.contains(expected);
 		Assert.assertTrue(status);
 
 	}
 
 	@Test(groups = { "systemTest" })
 	public void submitFeedbackTest() throws Exception {
+		
+		String message=eu.readDataExcel("dashboard",6,0);
+		String expected=eu.readDataExcel("dashboard",6,1);
 		
 		ListenerUtility.test.get().log(Status.INFO, "navigate to dashboard module");
 		HomePage home = new HomePage(driver);
@@ -62,14 +68,14 @@ public class DashboardTest extends BaseUtility {
 		feedback.getStarRatingBtn().click();
 
 		wu.selectDropdown(feedback.getFeedbackDropdownEle(),feedback.getDropdownOptionEle().getText());
-		feedback.getFeedbackMessageInput().sendKeys("experience with innent is good");
+		feedback.getFeedbackMessageInput().sendKeys(message);
 		
 		ListenerUtility.test.get().log(Status.INFO, "click on submit button");
 		feedback.getFeedbackSubmitBtn().click();
 		
 		wu.visibilityOfElement(driver,feedback.getFeedbackReceivedText());
 		String actual = feedback.getFeedbackReceivedText().getText();
-		boolean status=actual.contains("feedback");
+		boolean status=actual.contains(expected);
 		Assert.assertTrue(status);
 
 	}

@@ -10,6 +10,7 @@ public class BaseUtility {
 
 	public PropertyUtility pu = new PropertyUtility();
 	public WebdriverUtility wu = new WebdriverUtility();
+	public ExcelUtility eu=new ExcelUtility();
 	public WebDriver driver;
 	public static ThreadLocal<WebDriver> localDriver = new ThreadLocal<WebDriver>();
 

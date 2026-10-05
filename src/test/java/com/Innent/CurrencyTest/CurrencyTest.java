@@ -17,6 +17,8 @@ public class CurrencyTest extends BaseUtility {
 	@Test(groups = { "smokeTest" })
 	public void currencyTest() throws Exception {
 		
+		String expected=eu.readDataExcel("currency",2,0);
+		
 		ListenerUtility.test.get().log(Status.INFO, "click on currency button");
 		HomePage home = new HomePage(driver);
 		home.getCurrencyBtn().click();
@@ -26,11 +28,14 @@ public class CurrencyTest extends BaseUtility {
 		
 		wu.visibilityOfElement(driver,home.getCurrencyVisibleText());
 		String actual = home.getCurrencyVisibleText().getText();
-		Assert.assertEquals(actual, "USD");
+		Assert.assertEquals(actual,expected);
 	}
 	
 	@Test(groups = { "integrationTest" })
 	public void currencyIntegrationTest() throws Exception {
+		
+		String expected1=eu.readDataExcel("currency",6,0);
+		String expected2=eu.readDataExcel("currency",6,1);
 		
 		ListenerUtility.test.get().log(Status.INFO, "navigate to hotels module");
 		HomePage home = new HomePage(driver);
@@ -41,7 +46,7 @@ public class CurrencyTest extends BaseUtility {
 		HotelsPage hotels=new HotelsPage(driver);
 		wu.visibilityOfElement(driver,hotels.getHotelPriceCurrencyText());
 		String actual1=hotels.getHotelPriceCurrencyText().getText();
-		boolean status1=actual1.contains("CAD");
+		boolean status1=actual1.contains(expected1);
 		Assert.assertTrue(status1);
 		
 		ListenerUtility.test.get().log(Status.INFO, "click on currency button");
@@ -52,7 +57,7 @@ public class CurrencyTest extends BaseUtility {
 		
 		wu.visibilityOfElement(driver,hotels.getHotelPriceCurrencyText());
 		String actual2=hotels.getHotelPriceCurrencyText().getText();
-		boolean status2=actual2.contains("USD");
+		boolean status2=actual2.contains(expected2);
 		Assert.assertTrue(status2);
 	}
 }
