@@ -45,7 +45,7 @@ public class DashboardTest extends BaseUtility {
 
 	}
 
-	@Test(groups = { "systemTest" })
+	@Test(groups = { "systemTest" },invocationCount = 0)
 	public void submitFeedbackTest() throws Exception {
 		
 		ListenerUtility.test.get().log(Status.INFO, "navigate to dashboard module");

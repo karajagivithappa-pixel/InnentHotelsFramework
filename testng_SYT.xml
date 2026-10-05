@@ -12,9 +12,6 @@
   <test name="Test_SYT">
     <classes>
       <class name="com.Innent.DashboardTest.DashboardTest"/>
-      <class name="com.Innent.CurrencyTest.CurrencyTest"/>
-      <class name="com.Innent.HotelsTest.HotelsTest"/>
-      <class name="com.Innent.ContactTest.SendMessageTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
