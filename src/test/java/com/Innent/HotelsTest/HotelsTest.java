@@ -16,7 +16,7 @@ import genericUtility.ListenerUtility;
 @Listeners(genericUtility.ListenerUtility.class)
 public class HotelsTest extends BaseUtility {
 
-	@Test(groups = { "integrationTest" },invocationCount = 0)
+	@Test(groups = { "integrationTest" })
 	public void autofillGuestDetailTest() {
 		ListenerUtility.test.get().log(Status.INFO, "navigate to hotels module");
 		HomePage home = new HomePage(driver);
