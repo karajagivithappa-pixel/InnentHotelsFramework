@@ -9,7 +9,7 @@
 <listeners>
 	<listener class-name="genericUtility.ListenerUtility"/>
 </listeners>
-  <test thread-count="5" name="Test">
+  <test name="Test_SYT">
     <classes>
       <class name="com.Innent.DashboardTest.DashboardTest"/>
       <class name="com.Innent.CurrencyTest.CurrencyTest"/>
