@@ -21,8 +21,8 @@ public class SendMessageTest extends BaseUtility {
 
 		ListenerUtility.test.get().log(Status.INFO, "click on contact module");
 		HomePage home = new HomePage(driver);
-		//home.getContactLink().click();
-		wu.javascriptClickElement(driver,home.getContactLink());
+		home.getContactLink().click();
+		//wu.javascriptClickElement(driver,home.getContactLink());
 
 		ContactPage contact = new ContactPage(driver);
 		

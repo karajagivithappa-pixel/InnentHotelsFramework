@@ -1,41 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-10-05T12:30:48 IST" name="Default suite" finished-at="2026-10-05T12:32:58 IST" duration-ms="129616">
+  <suite started-at="2026-10-05T12:52:55 IST" name="Suite" finished-at="2026-10-05T12:53:56 IST" duration-ms="60243">
     <groups>
-      <group name="systemTest">
-        <method signature="DashboardTest.resetPasswordTest()[pri:0, instance:com.Innent.DashboardTest.DashboardTest@7193666c]" name="resetPasswordTest" class="com.Innent.DashboardTest.DashboardTest"/>
-        <method signature="DashboardTest.submitFeedbackTest()[pri:0, instance:com.Innent.DashboardTest.DashboardTest@7193666c]" name="submitFeedbackTest" class="com.Innent.DashboardTest.DashboardTest"/>
-      </group> <!-- systemTest -->
+      <group name="smokeTest">
+        <method signature="SendMessageTest.sendMessageTest()[pri:0, instance:com.Innent.ContactTest.SendMessageTest@52e6fdee]" name="sendMessageTest" class="com.Innent.ContactTest.SendMessageTest"/>
+      </group> <!-- smokeTest -->
     </groups>
-    <test started-at="2026-10-05T12:30:48 IST" name="Default test" finished-at="2026-10-05T12:32:58 IST" duration-ms="129616">
-      <class name="com.Innent.DashboardTest.DashboardTest">
-        <test-method is-config="true" signature="configBM()[pri:0, instance:com.Innent.DashboardTest.DashboardTest@7193666c]" started-at="2026-10-05T12:30:48 IST" name="configBM" finished-at="2026-10-05T12:31:15 IST" duration-ms="26850" status="PASS">
+    <test started-at="2026-10-05T12:52:55 IST" name="Test_ST" finished-at="2026-10-05T12:53:56 IST" duration-ms="60243">
+      <class name="com.Innent.ContactTest.SendMessageTest">
+        <test-method is-config="true" signature="configBM()[pri:0, instance:com.Innent.ContactTest.SendMessageTest@52e6fdee]" started-at="2026-10-05T12:52:55 IST" name="configBM" finished-at="2026-10-05T12:53:22 IST" duration-ms="26829" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- configBM -->
-        <test-method signature="resetPasswordTest()[pri:0, instance:com.Innent.DashboardTest.DashboardTest@7193666c]" started-at="2026-10-05T12:31:15 IST" name="resetPasswordTest" finished-at="2026-10-05T12:31:48 IST" duration-ms="33299" status="PASS">
+        <test-method signature="sendMessageTest()[pri:0, instance:com.Innent.ContactTest.SendMessageTest@52e6fdee]" started-at="2026-10-05T12:53:22 IST" name="sendMessageTest" finished-at="2026-10-05T12:53:44 IST" duration-ms="22184" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- resetPasswordTest -->
-        <test-method is-config="true" signature="configAM()[pri:0, instance:com.Innent.DashboardTest.DashboardTest@7193666c]" started-at="2026-10-05T12:31:48 IST" name="configAM" finished-at="2026-10-05T12:32:11 IST" duration-ms="22511" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- configAM -->
-        <test-method is-config="true" signature="configBM()[pri:0, instance:com.Innent.DashboardTest.DashboardTest@7193666c]" started-at="2026-10-05T12:32:11 IST" name="configBM" finished-at="2026-10-05T12:32:33 IST" duration-ms="21920" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- configBM -->
-        <test-method signature="submitFeedbackTest()[pri:0, instance:com.Innent.DashboardTest.DashboardTest@7193666c]" started-at="2026-10-05T12:32:33 IST" name="submitFeedbackTest" finished-at="2026-10-05T12:32:55 IST" duration-ms="22571" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- submitFeedbackTest -->
-        <test-method is-config="true" signature="configAM()[pri:0, instance:com.Innent.DashboardTest.DashboardTest@7193666c]" started-at="2026-10-05T12:32:55 IST" name="configAM" finished-at="2026-10-05T12:32:58 IST" duration-ms="2433" status="PASS">
+        </test-method> <!-- sendMessageTest -->
+        <test-method is-config="true" signature="configAM()[pri:0, instance:com.Innent.ContactTest.SendMessageTest@52e6fdee]" started-at="2026-10-05T12:53:44 IST" name="configAM" finished-at="2026-10-05T12:53:56 IST" duration-ms="11185" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- configAM -->
-      </class> <!-- com.Innent.DashboardTest.DashboardTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- com.Innent.ContactTest.SendMessageTest -->
+    </test> <!-- Test_ST -->
+  </suite> <!-- Suite -->
 </testng-results>
