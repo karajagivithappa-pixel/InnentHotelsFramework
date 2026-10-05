@@ -43,7 +43,7 @@ public class HotelsTest extends BaseUtility {
 		
 	}
 	
-	@Test(groups = { "integrationTest" })
+	@Test(groups = { "integrationTest" },invocationCount = 0)
 	public void defaultCityTest() throws Exception {
 
 		ListenerUtility.test.get().log(Status.INFO, "navigate to hotels module");
